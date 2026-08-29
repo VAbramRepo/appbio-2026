@@ -24,3 +24,8 @@ EOFs can allow you to write larger sections like this, specifying with the EOF l
 My samtools version is 1.
 24.
 
+This is code that could be used to create a new file:
+n
+ echo Test words > ~vmabr/workhouse/test.txt
+ 
+This creates a text file with these words, starting from the home directory
