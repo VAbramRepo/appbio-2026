@@ -29,3 +29,8 @@ n
  echo Test words > ~vmabr/workhouse/test.txt
  
 This creates a text file with these words, starting from the home directory
+This is another example: 'tree > example_directory/folder1/tree.txt'
+ 
+This is an example of a relative path from my current working directory.
+ 
+This is what the absolute directory for that same file would look like: '/home/vmabr/appbio-2026/week01/assignment1/example_directory/folder1/tree.txt'
