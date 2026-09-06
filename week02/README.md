@@ -20,17 +20,17 @@ The genome seems pretty well annotated and a detailed build. Many of the inital 
 ### Genome browsing 
 Q1. Genes (although many putative) are spaced every 50-300kb, which doesn't seem that unusual for a mammal and isn't that far off from human spacing. I did notice some very large gaps that were close to 1,000kb, though I'm not sure if this could be a result of incomplete annotation. 
 
-[Average spacing of genes](week02\Gene_spacing.png)
+[Average spacing of genes](Gene_spacing.png)
 
 However, there were chromosomes (e.g. 36) that had large segments that were non-coding. 
 
-[Large uncoding regions](week02\noncoding.png)
+[Large uncoding regions](noncoding.png)
 
 Q2. I selected NC_133932.1:80,467,783-80,468,192 on chromosome 2. (The one thing I do not appreciate about this genome is the confusing chromosome names)
 
 Within this 410 bp region, there was in exon for the gene ABCC4 coding in the positive direction. Additionally, the same intron was annotated as several other unidentified genes starting with XM or XR. 
 
-[Choromsomal coordinates](week02\chromosome2region.png)
+[Choromsomal coordinates](chromosome2region.png)
 
 Q3. 
 As you can see in the image, the intron could code 
@@ -44,13 +44,13 @@ or
 - NRLDPMSKAEK... 
 in the reverse direction 
 
-[Foward codons](week02\foward_sequences.png)
-[Reverse codons](week02\reverse_sequences.png)
+[Foward codons](foward_sequences.png)
+[Reverse codons](reverse_sequences.png)
 
 Q4. The only type of data I can see on this browser is the annotation track, which shows exons and introns. This makes sense, since I used a GFF file and there shouldn't be any quantitative data. 
 
 Q6. I made my reverse-coding genes a lovely pink. 
-[Coloring reverse strand](week02\colored.png)
+[Coloring reverse strand](colored.png)
 
 
 ## Using the Makefile
