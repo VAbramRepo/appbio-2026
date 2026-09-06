@@ -21,11 +21,11 @@ The genome seems pretty well annotated and a detailed build. Many of the inital 
 ### Genome browsing 
 Q1. Genes (although many putative) are spaced every 50-300kb, which doesn't seem that unusual for a mammal and isn't that far off from human spacing. I did notice some very large gaps that were close to 1,000kb, though I'm not sure if this could be a result of incomplete annotation. 
 
-![Average spacing of genes](images\Gene_spacing.png)
+![Average spacing of genes](images/Gene_spacing.png)
 
 However, there were chromosomes (e.g. 36) that had large segments that were non-coding. 
 
-![Large uncoding regions](images\noncoding.png)
+![Large uncoding regions](images/noncoding.png)
 
 Q2. I selected NC_133932.1:80,467,783-80,468,192 on chromosome 2. (The one thing I do not appreciate about this genome is the confusing chromosome names)
 
