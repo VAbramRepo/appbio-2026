@@ -2,7 +2,8 @@
 
 I am choosing to do the first project, where I will be downloading genomic data. 
 
-I am choosing the Tawny Owl Genome from NCBI
+I am choosing the Tawny Owl Genome "bStrAlu1.hap1" from NCBI. (NCBI RefSeq assembly
+GCF_031877795.1)
 
 [NCBI Genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_031877795.1/)
 
@@ -64,6 +65,14 @@ The makefile contains 3 main commands
 ```igv-index``` Should convert the files types to indexed versions. FASTA to .fna and GFF to gz.tbi. The files must remain in the same directory to be automatically linked when loading in the files to IGV. 
 
 Unfortunately, I could not get Windows, Linux, and IGV to get along, so I couldn't make a direct opening work. 
+
+
+Example code usage: 
+```bash
+make download-genome
+```
+
+
 
 
 
