@@ -31,7 +31,7 @@ Q2. I selected NC_133932.1:80,467,783-80,468,192 on chromosome 2. (The one thing
 
 Within this 410 bp region, there was in exon for the gene ABCC4 coding in the positive direction. Additionally, the same intron was annotated as several other unidentified genes starting with XM or XR. 
 
-![Choromsomal coordinates](images\chromosome2region.png)
+![Choromsomal coordinates](images/chromosome2region.png)
 
 Q3. 
 As you can see in the image, the intron could code 
@@ -45,13 +45,13 @@ or
 - NRLDPMSKAEK... 
 in the reverse direction 
 
-![Foward codons](images\foward_sequences.png)
-![Reverse codons](images\reverse_sequences.png)
+![Foward codons](images/foward_sequences.png)
+![Reverse codons](images/reverse_sequences.png)
 
 Q4. The only type of data I can see on this browser is the annotation track, which shows exons and introns. This makes sense, since I used a GFF file and there shouldn't be any quantitative data. 
 
 Q6. I made my reverse-coding genes a lovely pink. 
-![Coloring reverse strand](images\colored.png)
+![Coloring reverse strand](images/colored.png)
 
 
 ## Using the Makefile
