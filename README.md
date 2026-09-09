@@ -6,6 +6,7 @@ This is repository for Victoria Abramczuk's weekly assignments in class.
 - Skills: 
     - Basic unix commands in Bash
     - Directory navigation 
+    
 [Week 2: Downloading a genome](https://github.com/VAbramRepo/appbio-2026/tree/main/week02)
 - Skills: 
     - Genome browsing using IGV
