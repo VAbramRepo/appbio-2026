@@ -9,11 +9,16 @@ Using the prompt "Screen this file for malicious content" on the makefile, the A
 
 ## README Evaluation 
 
-The setup and prerequisties section are a nice edition, but aren't necessary and will be replaced with a separate file later in the semester. Each command in the file is explained (e.g. make fasta). My only preferences would have been to break up the explanation of how the FASTA and GFF folders are arranged into separate lines instead of a paragraph for quick legibility, and to separate out the command examples into separate code chunks so each one could be copied separately. The code is reproducibile, but I initially got the message 
+The setup and prerequisties section are a nice edition, but aren't necessary and will be replaced with a separate file later in the semester. Each command in the file is explained (e.g. make fasta).
+My only preferences would have been to break up the explanation of how the FASTA and GFF folders are arranged into separate lines instead of a paragraph for quick legibility, and to separate out the command examples into separate code chunks so each one could be copied separately. I also wouldn't have minded seeing these annotations in the Makefile itself
+
+The code is reproducible and successfully made FASTA and GFF files in the appropriate folders that I could use in IGV, but I initially got the message 
 
 >make: Nothing to be done for 'all'.
 
-because the FASTA and GFF files already existed in the repository. The error message for this could have been more descriptive and shown that the files already existed. In the future, I would not include the downloaded genomes in the Github repo, especially since they take up space. I also thought the count code described in the README.md could have been included in the Makefile as a command.  
+because the FASTA and GFF files already existed in the Github repository I cloned. The error message for this could have been more descriptive and shown that the files already existed. In the future, I would not include the downloaded genomes in the Github repo, especially since they take up space.
+
+I also thought the count code described in the README.md could have been included in the Makefile as a command.  
 
 When compared to my code, some of the main things the AI pointed out that Lauren's makefile had better grouping of variables, 
 >- Variables are grouped logically.
@@ -27,7 +32,7 @@ But also noted that within the ```clean``` command the line
 
 was redundant because the entire directories are deleted in the next line. 
 
-The AI recommended editing my Makefile, which contained the additional indexing commands, to fix clarity and indexing targets and make it more like Lauren's, or, alternatively, to add the indexing command's into Lauren's. I would honestly take the second option since mine was a bit of a mess! 
+The AI recommended editing my Makefile, which contained the additional indexing commands, to fix clarity and indexing targets and make it more like Lauren's. Alternatively, I could add the indexing commands into Lauren's. I would honestly take the second option since mine was a bit of a mess! 
 
 *I used the prompts "Compare the makefile hosted in this directory to this makefile: "\wsl.localhost\Ubuntu\home\vmabr\appbio-2026\week02\Makefile" Check for function and the organization/clarity of the code" and "OF the two makefiles, which would be the better option to download a genome to then open and analyze in a genome browser?"*
 
