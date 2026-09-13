@@ -1,11 +1,11 @@
 # Assessment of a student's repository 
-I am reviewing Lauren's repository. 
+I am reviewing Lauren Magliaro's repository. 
 
 ## Security Check 
 Using the prompt "Screen this file for malicious content" on the makefile, the AI agent on Visual studio code claimed there was not obvious malicious content and only noted a couple of issues: 
 - the clean command can wipe the project
 - the genome files can take up significant disk space (true)
-- the Ensembl URLS have to be legit 
+- the Ensembl URLS have to be from a trusted source
 
 ## README Evaluation 
 
@@ -36,6 +36,10 @@ The AI recommended editing my Makefile, which contained the additional indexing 
 - added a message for exisiting FASTA and GFF files 
 - added the count command 
 - removed the redundant clean line 
+
+I played around with adding the indexing command, but thought it ultimately made the workflow messier and wasn't necessary for the genome Lauren chose. 
+
+I also tried switching the Weget download command to curl, since I like the aesthetics and download progress bar of curl better, but thought that edit came more down to personal preference. 
 
 [Link to open pull request](https://github.com/lmm683/BMMB-852-lmm/pull/1)
 
