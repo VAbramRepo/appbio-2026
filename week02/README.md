@@ -54,25 +54,57 @@ Q6. I made my reverse-coding genes a lovely pink.
 ![Coloring reverse strand](images/colored.png)
 
 
-## Using the Makefile
 
-The makefile contains 3 main commands 
+## Reproducing the workflow
 
-```download-genome``` should access the link above and download the Tawny Owl FASTA, GFF, and GTF, each into separate folders labeled with their file types. 
+Run these commands from this ```week02``` directory.
 
-```clean``` will delete all the downloaded files in the case that you messed up the download and want to try again 
+### Required software
 
-```igv-index``` Should convert the files types to indexed versions. FASTA to .fna and GFF to gz.tbi. The files must remain in the same directory to be automatically linked when loading in the files to IGV. 
+- GNU Make
+- NCBI Datasets CLI (`datasets`)
+- `samtools`, `bgzip`, and `tabix` for indexing
+- IGV for genome browsing
 
-Unfortunately, I could not get Windows, Linux, and IGV to get along, so I couldn't make a direct opening work. 
 
+### Download files
 
-Example code usage: 
-```bash
+```
 make download-genome
 ```
 
+This downloads the genome, GFF3, and GTF data for the default NCBI accession.
+The Makefile places the results in:
+
+- ```FASTA/Tawny_Owl_genome.fna```
+- ```GFF/Tawny_Owl_genome.gff```
+- ```GTF/Tawny_Owl_genome.gtf```
 
 
+### Create indexes
 
+```
+make igv-index
+```
+
+This creates a FASTA index at ```FASTA/Tawny_Owl_genome.fna.fai```,
+compresses the GFF as `GFF/Tawny_Owl_genome.gff.gz`.
+
+
+### Browse in IGV
+
+Load the FASTA as the genome reference and load the compressed GFF as an
+annotation track. Navigate to
+`NC_133932.1:80,467,783-80,468,192` to reproduce the coordinate inspection.
+
+
+### Remove generated files
+
+```
+make clean
+```
+
+This permanently removes the entire `FASTA`, `GFF`, and `GTF` directories and
+all files inside them. Do not use it if those directories contain files you
+want to keep.
 
