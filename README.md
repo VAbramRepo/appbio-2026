@@ -14,5 +14,5 @@ This is repository for Victoria Abramczuk's weekly assignments in class. I am us
 
 [Week 3: Sending Suggestions with Forking](https://github.com/VAbramRepo/appbio-2026/tree/main/week03)
  - Skills:
-    - Using Forks in github
+    - Using forks in github to make and pull edits to another's work
     - Assessing a collaborator's code 
