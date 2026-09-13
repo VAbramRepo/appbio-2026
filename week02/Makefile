@@ -49,7 +49,7 @@ download-genome:
 	echo "FASTA saved to $(FASTA_DIR)/$(GENOME_PREFIX).$$ext"
 
 
-igv-index:
+ :
 	@command -v samtools >/dev/null 2>&1 || { echo "Error: 'samtools' CLI is not installed."; exit 1; }
 	@command -v bgzip >/dev/null 2>&1 || { echo "Error: 'bgzip' CLI is not installed."; exit 1; }
 	@command -v tabix >/dev/null 2>&1 || { echo "Error: 'tabix' CLI is not installed."; exit 1; }
