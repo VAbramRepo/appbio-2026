@@ -12,3 +12,7 @@ This is repository for Victoria Abramczuk's weekly assignments in class. I am us
     - Genome browsing using IGV
     - Creating a Makefile to download and index FASTA and GFF files from NCBI 
 
+[Week 3: Sending Suggestions with Forking](https://github.com/VAbramRepo/appbio-2026/tree/main/week03)
+ - Skills:
+    - Using Forks in github
+    - Assessing a collaborator's code 
