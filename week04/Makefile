@@ -58,7 +58,7 @@ fastq:
 	@rm -f fastq/*fastqc.zip
 
 clean:
-	@rm -rf fastq
+	@rm -rf fastq trimmed
 
 trim:
 	@mkdir -p trimmed

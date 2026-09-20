@@ -70,7 +70,8 @@ Based on the remaining skew around 90 bp, though, I think I could have been even
   `clean` will delete the FASTQ and trimmed folders
 
 
-  <sub> AI prompts used were: 
+AI prompts used were: 
+
   <sub>I would like to make a command that asks you for a genome's SRR number in a dialog box, and then inputs that number into fastq dump. The fastq file will be saved to a directory called fastq. 
 
   <sub>can you change it to whiptail
