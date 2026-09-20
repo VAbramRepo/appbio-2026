@@ -8,18 +8,23 @@ to ensure the whiptail command works
 
 ## Background information 
 
-As I expected, the Tawny Owl has a pretty sparse presence at 435 public genomes, almost all of which are Illumina sequenced. Still, this is more than I expected, especially for something that is basically the furthest from a model organism possible.
+As I expected, the Tawny Owl has a pretty sparse presence at 435 public genomes, almost all of which are Illumina sequenced. Still, this is more than I expected, especially for something that is not a model organism and would be fairly difficult to get samples from.
+
+![Tawny owl stats](images/owl.png)
 
 
-## Strix_aluco QC for ERR16930909			
-This read is a little intresting since it comes from BGISEQ, a sequencing platform I really haven't heard of much. 
+Because the inital genome I looked at wasn't paired for some odd reason, I'll be looking at [ERR16930909](https://www.ncbi.nlm.nih.gov/sra/ERX16316091[accn])
 
+NCBI tells me the number of bases this run collected is 52.5G. Assuming the Tawny Owl's genome is 1.2 GB, this puts us at ~43.8x coverage. This is within a respectable range for sequencing.
 
-The quality score of the reads was surprisingly good and never dipped below ~24 across the 10000 reads. 
+## Strix aluco QC for SRA ERX16316091		
+This run is a little intresting since it comes from BGISEQ, a sequencing platform I really haven't heard of before.
+
+The quality score of the reads for the first file was surprisingly good and never dipped below ~24 across the 10000 reads. 
 
 ![Quality](images/qc.png)
 
-Weirdly enough, the paired read was much worse. 
+Weirdly enough, the paired read was longer, but also much worse towards the end. 
 
 ![read histogram](images/qc2.png)
 
@@ -41,7 +46,7 @@ After trimming, the reads did look better, especially for the "reverse" read.
 
 ![trimmed](images/qc5.png)
 
-Based on the remaining skew around 90 bp, though, I think I could have been even more dramatic with the 3' end trim. 
+Based on the remaining skew around 90 bp, though, I think I could have been even more dramatic with the 3' end trim. Overall, the trimming seemed to do some good and removed poor quality reads. 
 
 ![trimmed gc](images/qc6.png)
 
@@ -65,14 +70,14 @@ Based on the remaining skew around 90 bp, though, I think I could have been even
   `clean` will delete the FASTQ and trimmed folders
 
 
-  <small> AI prompts used were: 
+  <sub> AI prompts used were: 
   I would like to make a command that asks you for a genome's SRR number in a dialog box, and then inputs that number into fastq dump. The fastq file will be saved to a directory called fastq. 
 
   can you change it to whiptail
 
   how can I make the "scientific_name" output from the bio command save as a variable which then becomes the FASTQ file's name
 
-  how to fix the trim command <small>
+  how to fix the trim command <sub>
 
 
 
