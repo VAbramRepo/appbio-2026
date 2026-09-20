@@ -71,13 +71,13 @@ Based on the remaining skew around 90 bp, though, I think I could have been even
 
 
   <sub> AI prompts used were: 
-  I would like to make a command that asks you for a genome's SRR number in a dialog box, and then inputs that number into fastq dump. The fastq file will be saved to a directory called fastq. 
+  <sub>I would like to make a command that asks you for a genome's SRR number in a dialog box, and then inputs that number into fastq dump. The fastq file will be saved to a directory called fastq. 
 
-  can you change it to whiptail
+  <sub>can you change it to whiptail
 
-  how can I make the "scientific_name" output from the bio command save as a variable which then becomes the FASTQ file's name
+  <sub>how can I make the "scientific_name" output from the bio command save as a variable which then becomes the FASTQ file's name
 
-  how to fix the trim command <sub>
+ <sub> how to fix the trim command <sub>
 
 
 
