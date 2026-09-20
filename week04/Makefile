@@ -6,7 +6,7 @@ export SAFE_NAME
 
 all: download fastq stats trim
 
-# Download SRA reads for a genome accession.
+# Downloads SRA reads for a genome accession.
 # The download command uses whiptail to open a dialog box to prompt the user for a genome's SRR number. 
 #It then uses the bio command with -t and -H to create a tab delinated table, finds the column "scientific_name", and stores the output  
 # Lines 38-40 change the scientific name to a safe name by replacing any non-alphanumeric characters with underscores.
@@ -46,19 +46,22 @@ download:
 		mv -- "$$file" "fastq/$$safe_name$$suffix"; \
 	done; \
 	printf '\r\n'
-
-stats:
+#Shows basic statistics for all fastq files in the fastq directory 
 	@seqkit stats fastq/*.fastq
 
+# Generates FastQC reports for all fastq files in the fastq directory, moves the reports to a subdirectory, and removes the zip files.
 fastq:
 	@fastqc fastq/*.fastq
 	@mkdir -p fastq/fastqc
 	@mv fastq/*fastqc.html fastq/fastqc/
 	@rm -f fastq/*fastqc.zip
-
+# Deletes the fastq and trimmed directories and their contents.
 clean:
 	@rm -rf fastq trimmed
-
+#uses fastp to trim the reads in the fastq directory, 
+#saves the trimmed reads in a new directory called trimmed
+#generates FastQC reports for the trimmed reads
+#moves the reports to a subdirectory, and removes the zip files.
 trim:
 	@mkdir -p trimmed
 	@for r1 in fastq/*_1.fastq; do \
