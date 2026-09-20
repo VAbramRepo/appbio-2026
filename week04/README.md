@@ -3,7 +3,8 @@
 * Note: Please make sure you use 
 ``` pixi add newt ```
 to ensure the whiptail command works
-
+* the makefile will only work with paired reads as of now. There's definitely a fix for this within the fastp pipeline
+* If a species name is not found within the metadata, the files will be named "genome_1" and "genome_2"
 
 
 ## Background information 

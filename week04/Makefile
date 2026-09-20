@@ -33,8 +33,7 @@ download:
                 exit \
             }'); \
 	if [ -z "$$scientific_name" ]; then \
-		echo "No scientific name found for $$srr." >&2; \
-		exit 1; \
+		scientific_name="genome"; \
 	fi; \
 	safe_name=$$(printf '%s' "$$scientific_name" | sed 's/[^[:alnum:]._-]/_/g'); \
 	mkdir -p fastq; \
