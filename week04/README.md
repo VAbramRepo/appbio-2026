@@ -72,7 +72,7 @@ Based on the remaining skew around 90 bp, though, I think I could have been even
 
   how can I make the "scientific_name" output from the bio command save as a variable which then becomes the FASTQ file's name
 
-  how to fix the trim command
+  how to fix the trim command <small>
 
 
 
