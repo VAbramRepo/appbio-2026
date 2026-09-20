@@ -1,5 +1,10 @@
-.PHONY: download fastq stats bio clean
+.PHONY: all download fastq stats bio trim clean
 
+-include fastq/.safe_name.mk
+
+export SAFE_NAME
+
+all: download fastq stats trim
 
 # Download SRA reads for a genome accession.
 # The download command uses whiptail to open a dialog box to prompt the user for a genome's SRR number. 
@@ -33,6 +38,8 @@ download:
 	fi; \
 	safe_name=$$(printf '%s' "$$scientific_name" | sed 's/[^[:alnum:]._-]/_/g'); \
 	mkdir -p fastq; \
+	printf 'SAFE_NAME := %s\n' "$$safe_name" > fastq/.safe_name.mk.tmp; \
+	mv -- fastq/.safe_name.mk.tmp fastq/.safe_name.mk; \
 	fastq-dump -X 10000 --outdir fastq --split-files "$$srr"; \
 	for file in fastq/"$$srr"*.fastq; do \
 		[ -e "$$file" ] || continue; \
@@ -50,9 +57,26 @@ fastq:
 	@mv fastq/*fastqc.html fastq/fastqc/
 	@rm -f fastq/*fastqc.zip
 
-
-bio:
-	bio search fastq/*.fastq
-
 clean:
 	@rm -rf fastq
+
+trim:
+	@mkdir -p trimmed
+	@for r1 in fastq/*_1.fastq; do \
+		[ -e "$$r1" ] || continue; \
+		r2=$${r1%_1.fastq}_2.fastq; \
+		if [ ! -e "$$r2" ]; then \
+			echo "Skipping $$r1: matching $$r2 not found" >&2; \
+			continue; \
+		fi; \
+		base=$$(basename "$$r1" _1.fastq); \
+		out1="trimmed/$${base}_1.trimmed.fastq"; \
+		out2="trimmed/$${base}_2.trimmed.fastq"; \
+		fastp -x --average_qual=25 -f 15 -t 30 \
+			-i "$$r1" -I "$$r2" \
+			-o "$$out1" -O "$$out2"; \
+	done
+	@fastqc trimmed/*.fastq
+	@mkdir -p trimmed/fastqc
+	@mv trimmed/*fastqc.html trimmed/fastqc/
+	@rm -f trimmed/*fastqc.zip
