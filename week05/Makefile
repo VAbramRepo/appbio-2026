@@ -32,23 +32,23 @@ BAM = bam/$(SAMPLE_NAME).bam
 #BWA index sentinel 
 INDEX= $(GENOME_FASTA).bwt
 
-.PHONY: all download fastq trim fastq-trim fasta 
+.PHONY: all download fastq trim fasta qc qc_trim align 
 
 # All definitions above the line 
 #=================================
 
 
-all: download fastq trim fastq-trim
+all:  fasta fastq qc index align
 
-#download makes a fastq directory, splits the inputed SRR number into separate files for paired reads of N length
-#Files are renamed to whatever was input as a file name. Be aware if there are spaces in the file name, the file will not rename correctly
 
 fasta: $(GENOME_FASTA)
 
 $(GENOME_FASTA):
 	@mkdir -p fasta
-	curl -fSL $(REF_GENOME_URL) | gunzip > $@
+	curl -fSqL $(REF_GENOME_URL) | gunzip > $@
 	seqkit stats $@
+#makes a fastq directory, splits the inputed SRR number into separate files for paired reads of N length
+#Files are renamed to whatever was input as a file name. Be aware if there are spaces in the file name, the file will not rename correctly
 
 fastq: 
 	@mkdir -p fastq
@@ -57,7 +57,7 @@ fastq:
 	mv fastq/$(SRR)_2.fastq $(FASTQ2)
 	seqkit stats $(FASTQ1) $(FASTQ2)
 
-#fastq runs fastq on all files that end in .fastq and inputs them in a subdirectory called fastqc
+#qc runs fastq on all files that end in .fastq and inputs them in a subdirectory called fastqc
 qc:
 	@mkdir -p fastq/fastqc
 	@fastqc -o fastq/fastqc/ fastq/*.fastq
@@ -66,20 +66,10 @@ qc:
 # Saves the trimmed reads in a new directory called trimmed. If not paired, it will skip one read
 trim:
 	@mkdir -p trimmed
-	@for r1 in $(FASTQ1); do \
-		[ -e "$$r1" ] || continue; \
-		r2=$${r1%_1.fastq}_2.fastq; \
-		if [ ! -e "$$r2" ]; then \
-			echo "Skipping $$r1: matching $$r2 not found" >&2; \
-			continue; \
-		fi; \
-		base=$$(basename "$$r1" _1.fastq); \
-		out1="trimmed/$${base}_1.trimmed.fastq"; \
-		out2="trimmed/$${base}_2.trimmed.fastq"; \
-		fastp -x --average_qual=25 -f 15 -t 30 \
-			-i "$$r1" -I "$$r2" \
-			-o "$$out1" -O "$$out2"; \
-	done
+	@fastp -x --average_qual=25 -f 15 \
+		-i "$(FASTQ1)" -I "$(FASTQ2)" \
+		-o "trimmed/$(SAMPLE_NAME)_1.trimmed.fastq" \
+		-O "trimmed/$(SAMPLE_NAME)_2.trimmed.fastq"
 
 #Creates fastqc reports for trimmed reads
 qc_trim:
@@ -93,16 +83,16 @@ index:
 
 #Align the genome using bwa mem algorithmn, with flagstat summary report
 align: $(BAM)
-$(BAM)
-	mkdir -p alignment
-	bwa mem $(GENOME_FASTA) $(FASTQ1) $(FASTQ2) | samtools view -bS -o $@
+$(BAM):
+	mkdir -p bam
+	bwa mem $(GENOME_FASTA) $(FASTQ1) $(FASTQ2) | samtools sort -o $@
 	samtools index $@
 	samtools flagstat $@ 
 
 
 #Removes fastq and trimmed folders to start over
 restart: 
-	@rm -rf fastq trimmed
+	@rm -rf fastq trimmed bam fasta
 #Gets rid of extra files
 
 #for easy printing of SRR url
