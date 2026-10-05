@@ -30,8 +30,4 @@ This is repository for Victoria Abramczuk's weekly assignments in class. I am us
 
 [Week 6: Interpreting alignments](https://github.com/VAbramRepo/appbio-2026/tree/main/week06)
     - Skills:
-        - Discerning insertions, deletions, CNVs, etc in read alignmnents
-         
-          - 
-
-
+        - Discerning insertions, deletions, CNVs, etc in read alignmnent
