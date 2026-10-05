@@ -15,4 +15,20 @@ This is repository for Victoria Abramczuk's weekly assignments in class. I am us
 [Week 3: Sending Suggestions with Forking](https://github.com/VAbramRepo/appbio-2026/tree/main/week03)
  - Skills:
     - Using forks in github to make and pull edits to another's work
-    - Assessing a collaborator's code 
+    - Assessing a collaborator's code
+[Week 4: Fastp trimming and alignment of reads ](https://github.com/VAbramRepo/appbio-2026/tree/main/week04)
+    -Skills:
+        - Aligning reads to a reference genome with fastq
+        - Interpret fastq quality plots
+        - Trim reads with fastP
+[Week 5: Fastp trimming and alignment of reads ](https://github.com/VAbramRepo/appbio-2026/tree/main/week05)
+    -Skills:
+`       - Creating a BAM file
+        - Creating a makefile to go from downloading reference and read data, trimming, indexing, and aligning
+[Week 6: Interpreting alignments](https://github.com/VAbramRepo/appbio-2026/tree/main/week06)
+    -Skills:
+          - Discerning insertions, deletions, CNVs, etc in read alignmnents
+         
+          - 
+
+
