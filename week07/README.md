@@ -75,7 +75,7 @@ Visually, variants seemed to be called reasonably, calling only on regions that 
 
 ![reads](images/Calls.png)
 
-I did notice one region where a portion of the reads did not support the proposed indel and multiple reads with an SNP were not called. I wonnder if increasing the sequencing depth would eliminate some of these issues. 
+I did notice one region where a portion of the reads did not support the proposed indel and multiple reads with an SNP were not called. I wonder if increasing the sequencing depth would eliminate some of these issues. 
 
 ![conflict](images/conflicting.png)
 
