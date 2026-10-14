@@ -48,10 +48,10 @@ Because I'm using a laptop, I can only reasonably align around ~1 million reads.
 
 Thus, since: 
 
->>>Coverage = Number_reads * Length_reads / Gegnome_size >>>
+>>>Coverage = Number_reads * Length_reads / Gegnome_size
 
 
->>> 10 = Number_reads * 100 / 5200000>>>
+>>> 10 = Number_reads * 100 / 5200000
 
 Thus, I can get 10x coverage with 520000 reads. 
 
