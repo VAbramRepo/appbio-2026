@@ -58,9 +58,9 @@ SN      0       number of multiallelic SNP sites:       0
 
 # Variant quality 
 
-The transitions/transverions ratio was *1.77* in the summary stats. Because, biologically, we expect a higher number of transitions, good quality calls typically have ratios between 2-3. This sample's is a bit below this, which suggests more transversions than expected and potentially more randomness than we'd expect biologically from the calls. 
+The transitions/transverions ratio was *1.77* in the summary stats. Because, biologically, we expect a higher number of transitions, good quality calls typically have ratios between 2-3. This sample's is a bit below this, which suggests more transversions than expected and potentially more randomness than we'd expect biologically. This could indicate some issues within the quality. 
 
-Even if we filter out calls below 20 using 
+However, even  if we filter out calls with a quality below 20 using 
 ```
 bcftools filter -i 'QUAL>20' vcf/sample.vcf.gz \ | bcftools stats
 ```
