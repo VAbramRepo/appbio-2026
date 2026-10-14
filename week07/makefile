@@ -5,7 +5,7 @@ GENOME_FASTA=fasta/$(GENOME_NAME).fasta
 REF_GENOME_URL=https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_cds_from_genomic.fna.gz
 SRR=SRR38523917
 SAMPLE_NAME=sample
-N=100000
+N=200000
 
 #The inputted SRR can be added onto the end of this url
 SRR_URL= https://www.ncbi.nlm.nih.gov/sra/?term=$(SRR)
@@ -94,6 +94,10 @@ $(VCF): $(FASTA) $(BAM)
 		bcftools norm -f $(FASTA) -d all -O u | \
 		bcftools sort --write-index -O z -o $(VCF)
 
+# Will generate a stats file and plots pdf for the vcf file generated in the variants step
+stats: $(VCF)
+	bcftools stats $(VCF) > vcf/$(SAMPLE_NAME).stats
+	plot-vcfstats -p vcf/$(SAMPLE_NAME).plots vcf/$(SAMPLE_NAME).stats
 
 #Removes fastq and trimmed folders to start over
 restart: 
