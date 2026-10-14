@@ -5,7 +5,7 @@
 ## Sample 1
 There are two insetions present, but both are small enough that they fit within the 100 bp reads. One occurs at approximately 14951 and is a single thymine insertion. There is a second insert of GTG at location 1,521. Again, it is small enough for a whole read to contain it. 
 
-![insertion](images/insertion.png)
+![insertion](images/insert.png)
 
 
 ## Sample 2
