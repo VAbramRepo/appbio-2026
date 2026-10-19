@@ -49,6 +49,19 @@ make merge
 
 To merge together ALL VCF files that are in the VCF folder. 
 
+
+You may also wish to combine variants from the BAM files rather than the VCF files, which show variation that is hidden by gaps in coverage. 
+
+To run this version, use
+```
+make mergeBAM
+```
+
+There is little difference between the two outputs. However, I did notice this extra variant in the BAM file compliation, so it may be a more detailed option. 
+
+![variant noticed](images/vcf_versus_BAM.png)
+
+
 ## Variant Comparision 
 
 Load the Staph FASTA, GFF, and merged VCF files into IGV. 

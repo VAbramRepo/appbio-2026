@@ -124,3 +124,10 @@ url:
 merge: 
 	bcftools merge --write-index -O z -o vcf/merged-VCF.vcf.gz \
 		vcf/*.vcf.gz
+
+mergeBAM:
+	bcftools mpileup -d 100 --annotate 'INFO/AD,FORMAT/DP,FORMAT/AD,FORMAT/ADF,FORMAT/ADR,FORMAT/SP' -O u -f $(FASTA)\
+    bam/*.bam | \
+    bcftools call $(CALL) -mv -O u | \
+    bcftools norm -f $(FASTA) -d all -O u | \
+    bcftools sort --write-index -O z -o vcf/merged-BAM.vcf.gz
