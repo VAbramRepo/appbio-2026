@@ -14,9 +14,15 @@ I am using multiple runs from a study from the Federal Research Center for Anima
 
 
 I am using 3 WGS runs of *Staph. aureus* from this project: 
-- SRR38523917	
-- SRR38523918
-- SRR38523919	
+
+| Sample    | SRR           | Description  |
+|-----------|---------------|--------------|
+| UDI16     | SRR38523917   | Milk 1       |
+| UDI13     | SRR38523918   | Milk 2       |
+| UDI12     | SRR38523919   | Milk 3       |
+
+
+Each sample is from a different milk sample, from my understanding. 
 
 I will first individually calling the variants, creating the VCF files, and then merging them. 
 
@@ -45,6 +51,8 @@ To merge together ALL VCF files that are in the VCF folder.
 
 ## Variant Comparision 
 
+Load the Staph FASTA, GFF, and merged VCF files into IGV. 
+
 Interestingly, sample UDI12 has very few variations from the reference genome, while UDI13 and UDI16 have significantly more variants but are also very similar to each other. 
 
 ![trends](images/trends.png)
@@ -66,4 +74,10 @@ The second, not being in the wobble position, does change the amino acid, though
 
 Finally, an ACT is mutated to TCT, which converts a threonine to a serine. These amino acids both have similar alcohol groups, so this isn't as dramatic of a change. 
 
+Summary: 
 
+| Original | Mutation| AA change |
+|----------|---------|---------- |
+| GAT      | GAC     | Silent    |
+| GGT      | GAT     | G -> D    |
+| ACT      | TCT     | T -> S    |
