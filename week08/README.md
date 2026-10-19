@@ -3,15 +3,17 @@
 
 I am using multiple runs from a study from the Federal Research Center for Animal Husbandry looking at milk microbiota.
 
-"The goal of this project is a comparative analysis of the microbiota of milk from cows with mastitis (presumably a subclinical form) and healthy animals in the main dairy regions of the Russian Federation. The establishment of milk microorganisms are typical for the regions of the country, an identification of the content of microorganisms associated with mastitis, as well as to search for commensal microorganisms of normal milk microbiot". Interesting! 
+"The goal of this project is a comparative analysis of the microbiota of milk from cows with mastitis (presumably a subclinical form) and healthy animals in the main dairy regions of the Russian Federation. The establishment of milk microorganisms are typical for the regions of the country, an identification of the content of microorganisms associated with mastitis, as well as to search for commensal microorganisms of normal milk microbiot".  Unfortunately, I couldn't find a direct publication tied to this. 
 
 
 [Reference Genome Page](https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000013425.1/)
+
 [Reference Genome Download](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.fna.gz )
+
 [Gff Download](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.gff.gz)
 
 
-I am using 3 WGS runs of *Staph. aureus* : 
+I am using 3 WGS runs of *Staph. aureus* from this project: 
 - SRR38523917	
 - SRR38523918
 - SRR38523919	
@@ -20,20 +22,28 @@ I will first individually calling the variants, creating the VCF files, and then
 
 I ran each sample individually, using these three codes individually: 
 
-``` make SRR=SRR38523919 SAMPLE_NAME=UDI12 ```
+``` 
+make SRR=SRR38523919 SAMPLE_NAME=UDI12 
+```
 
-``` make SRR=SRR38523918 SAMPLE_NAME=UDI13 ```
+``` 
+make SRR=SRR38523918 SAMPLE_NAME=UDI13
+```
 
-``` make SRR=SRR38523917 SAMPLE_NAME=UDI16 ```
+``` 
+make SRR=SRR38523917 SAMPLE_NAME=UDI16 
+```
 
 This will download the FASTA, GFF, and create BAM and VCF files for each run. 
 
 Then, use 
-``` make merge ```
+```
+make merge
+ ```
 
 To merge together ALL VCF files that are in the VCF folder. 
 
-# Variant Comparision 
+## Variant Comparision 
 
 Interestingly, sample UDI12 has very few variations from the reference genome, while UDI13 and UDI16 have significantly more variants but are also very similar to each other. 
 
@@ -44,7 +54,7 @@ There were only a few locations where samples UDI13 and UDI16 differed, and many
 
 ![weird](images/weird.png)
 
-# Variant Effects 
+## Variant Effects 
 
 There are a number of point mutations in the mutL gene, which is involved in DNA repair. 
 
