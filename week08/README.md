@@ -68,6 +68,8 @@ There are a number of point mutations in the mutL gene, which is involved in DNA
 
 ![mutL](images/mutL.png)
 
+<img src="images/boxes.png" width="200" alt="Description of image">
+
 The first changes a GAT to a GAC. Both code for aspartate, so this is a synonomous/silent mutation. 
 
 The second, not being in the wobble position, does change the amino acid, though. Going from GGT to GAT in the samples mutates a glycine to an aspartate. Aspartate can be pretty reactive and does a lot of acid/base chemistry in comparasion to the tiny glycine, so this could be a farily significant structural change. 
