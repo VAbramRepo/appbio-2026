@@ -128,6 +128,9 @@ chip_peak:
     -n ${SAMPLE_NAME} \
     -g $(GENOME_SIZE) \
 	-q $(qvalue) \
+	--mfold 2 50 \
+	--nomodel \
+	--extsize 200 \
     --outdir peaks
 
 #qc runs fastq on all files that end in .fastq and inputs them in a subdirectory called fastqc
