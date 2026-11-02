@@ -74,7 +74,7 @@ Also be aware that you may need to change the number of reads to change coverage
 
 An error 1/3 may appear in the output, but this should not affect the results. 
 
-The `make batch` command utilizes:
+The `make batch` command utilizes the following commands. If working with another genome, some aspects of the makefile will need to be changed. 
 
 | Command | Purpose |
 |---|---|
