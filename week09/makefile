@@ -33,7 +33,7 @@ N_SAMPLES=10
 #Sets number of jobs to run in parallel. Default is 3, but can be changed to any number
 N_JOBS=3
 
-.PHONY: all download fastq trim fasta qc qc_trim align variants 
+.PHONY: all batch download fastq trim fasta qc qc_trim align variants 
 
 # All definitions above the line 
 #=================================
@@ -78,7 +78,7 @@ fastq:
 #qc runs fastq on all files that end in .fastq and inputs them in a subdirectory called fastqc
 qc:
 	@mkdir -p fastq/fastqc
-	@fastqc -o fastq/fastqc/ fastq/*.fastq
+	@fastqc --outdir fastq/fastqc/ fastq/*.fastq
 	@rm -f fastq/fastqc/*fastqc.zip
 
 # Saves the trimmed reads in a new directory called trimmed. If not paired, it will skip one read
@@ -92,7 +92,7 @@ trim:
 #Creates fastqc reports for trimmed reads
 qc_trim:
 	@mkdir -p trimmed/fastqc
-	@fastqc -o trimmed/fastqc/ trimmed/*.fastq
+	@fastqc --outdir trimmed/fastqc/ trimmed/*.fastq
 	@rm -f trimmed/fastqc/*.zip
 
 #Index the reference genome using bwa

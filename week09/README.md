@@ -1,5 +1,9 @@
 # Assignment 9: Automate Workflows
 
+Run the workflow from this directory with `make -f makefile all` or
+`make -f makefile batch`. The build file is intentionally named `makefile`;
+specifying it with `-f` also works on case-sensitive filesystems.
+
 I am using data from [PRJNA763014](https://www.ncbi.nlm.nih.gov/bioproject/763014) from the Universtiy of the Sunshine Coast in 2021. 
 
 This study investigated: i) within-host diversity of 35 S. aureus strains obtained from 10 participants in the 'Top End' region of the Northern Territory, Australia; and ii) whether commensal strains isolated from these individuals differed from their invasive strains.
@@ -96,7 +100,6 @@ The "merged-BAM.vcf" file should contain the multi-sample alignment. For the exa
 There were only a few regions where multiple mutations in the same region were detected. 
 
 ![alt](images/alt.png)
-
 
 
 
