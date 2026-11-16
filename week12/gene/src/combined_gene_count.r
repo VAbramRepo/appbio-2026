@@ -53,6 +53,27 @@ for (i in seq_along(sample_counts)) {
     sample_counts[[i]]$Count[match(gene_ids, sample_genes)]
 }
 
+# Add common gene names from Ensembl, removing version suffixes for lookup.
+message("Looking up common gene names with biomaRt")
+mart <- biomaRt::useEnsembl(
+  biomart = "genes",
+  dataset = "hsapiens_gene_ensembl",
+  host = "https://e115.ensembl.org"
+)
+annotations <- biomaRt::getBM(
+  attributes = c("ensembl_gene_id", "external_gene_name"),
+  filters = "ensembl_gene_id",
+  values = unique(sub("\\.[0-9]+$", "", gene_ids)),
+  mart = mart
+)
+gene_names <- annotations$external_gene_name[
+  match(sub("\\.[0-9]+$", "", gene_ids), annotations$ensembl_gene_id)
+]
+gene_names[!is.na(gene_names) & !nzchar(gene_names)] <- NA_character_
+count_matrix[["gene name"]] <- gene_names
+count_matrix <- count_matrix[c("Geneid", "gene name", sample_names)]
+
+# Save the matrix with Ensembl IDs, common names, and per-sample counts.
 output_file <- file.path(project_dir, "gene_count_matrix.csv")
 write.csv(count_matrix, output_file, row.names = FALSE)
 message("Wrote ", output_file)
