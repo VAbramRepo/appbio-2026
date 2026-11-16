@@ -11,9 +11,9 @@ To download the necessary data, run
 make download
 ```
 
+## Expected Data Structure
 ```
 .
-## Expected Data Structure
 ├── Makefile
 ├── README.md
 ├── gene
