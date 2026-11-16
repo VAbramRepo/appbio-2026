@@ -5,6 +5,12 @@
 
 Use the Makefile in the main directory. If you wish to examine the underlying R scripts, examine the src folders in the gene and transcript files, respectively. 
 
+To download the necessary data, run 
+
+``` 
+make download
+```
+
 ```
 .
 ├── Makefile
@@ -302,9 +308,9 @@ Based on the comparison, the average difference for each sample ranged from -0.3
 
 ```
 HBR_1_difference HBR_2_difference HBR_3_difference UHR_1_difference
-      -0.3219766       -0.2407894       -0.3232053       -3.0882745
+      -0.3338873       -0.2428562       -0.3436556       -3.1878380
 UHR_2_difference UHR_3_difference
-      -2.4030617       -2.7971745
+      -2.4250161       -2.8211845
 ```
 
 
